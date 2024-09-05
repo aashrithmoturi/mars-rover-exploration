@@ -1,0 +1,20 @@
+name: CD-PIPELINE
+
+# Only triggers when the build workflow succeeded
+on:
+  workflow_run:
+    workflows: ["CI-PIPELINE"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull Docker Image
+        run: sudo docker pull ashrithm52581/mars-rover-exploration:latest
+      - name: Delete Old Docker Container
+        run: sudo docker rm -f mars-rover-exploration-container || true
+      - name: Run the Docker Image which has been pulled
+        run: sudo docker run -d -p 8080:8080 --name mars-rover-exploration-container ashrithm52581/mars-rover-exploration
