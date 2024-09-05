@@ -17,5 +17,7 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build -t mars-rover-exploration .
+    - name: tagging the docker image
+      run: docker tag mars-rover-exploration:latest ashrithm52581/mars-rover-exploration:latest
     - name: Push to DockerHub
       run: docker push ashrithm52581/mars-rover-exploration:latest
