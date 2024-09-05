@@ -17,4 +17,4 @@ jobs:
       - name: Delete Old Docker Container
         run: sudo docker rm -f mars-rover-exploration-container || true
       - name: Run the Docker Image which has been pulled
-        run: sudo docker run -d -p 8080:8080 --name mars-rover-exploration-container ashrithm52581/mars-rover-exploration
+        run: sudo docker run -d -p 8080:80 --name mars-rover-exploration-container ashrithm52581/mars-rover-exploration
