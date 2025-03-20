@@ -8,7 +8,7 @@ class Grid {
   }
 
   createGrid() {
-    // Creates a 2D array of nodes
+    // Creates a 2D array
     for (let i = 0; i < this.columns; i++) {
       this.grid[i] = [];
     }
